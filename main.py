@@ -3,3 +3,4 @@ print(1 + 2)
 # hgfghfghfghfhghfghf
 # jhgfhfghfghfghf       ctrl+/
 # dghdfbdfbd
+# доб 6 стрк
