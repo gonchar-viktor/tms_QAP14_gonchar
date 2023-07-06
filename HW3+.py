@@ -1,3 +1,4 @@
+# +++
 #  1.2 Определить переменные всех типов и выведете их на экран +
 print(type(int(1)))
 print(type(float(1.22)))
@@ -58,7 +59,7 @@ s3 = ["Ivanou", "Ivan"]
 s3.reverse()
 print(" ".join(s3))  # Ivan Ivanou
 
-#  Напишите программу, которая удаляет пробел в начале, в конце строки
+#  Напишите программу, которая удаляет пробел в начале, в конце строки +
 s = "       hello world       "
 print(s.strip())
 
@@ -72,7 +73,7 @@ for class_, students_ in school.items():
 spisok = ["element1", "element2", "element3"]
 print(spisok[1])
 
-#  Вывести входит ли строка1 в строку2 (пример: employ и employment)
+#  Вывести входит ли строка1 в строку2 (пример: employ и employment) +
 stroka1 = "employ"
 stroka2 = "employment"
 print(stroka1 in stroka2)
