@@ -4,7 +4,7 @@ if (a % 4 == 0) and (a % 100 != 0) or (a % 400 == 0):
 else:
     print('NO')
 
-a = [1,2,-6,100,99,101,-80,0]
+a = [1, 2, -6, 100, 99, 101, -80, 0]
 b = a[0]
 i = 0
 while i <= len(a):
@@ -35,3 +35,9 @@ while i <= len(a):
         break
 
 print(b)
+
+x = [1]
+b = x
+b.append(10)
+print(b)
+print(x)
