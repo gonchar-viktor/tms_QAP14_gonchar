@@ -1,0 +1,6 @@
+../.idea
+*.pyc
+*.egg-info
+/env
+/.env
+__pycache__/
