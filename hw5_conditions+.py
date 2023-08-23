@@ -45,15 +45,14 @@ print(*func3())
 # 2. Даны три целых числа. Найти количество положительных чисел в
 # исходном наборе.
 
-def number_of_positive_numbers():
+def number_of_positive_numbers(number1,number2,number3):
     """
     Three integers are given. Find the number of positive numbers in the
     original set.
     """
-    b1 = [3, 4, -5]
     positive = 0
     negative = 0
-    for i in b1:
+    for i in (number1, number2, number3):
         if i >= 0:
             positive += 1
         else:
@@ -61,7 +60,7 @@ def number_of_positive_numbers():
     return f"положительных: {positive}\nотрицательных: {negative}"
 
 
-print(number_of_positive_numbers())
+print(number_of_positive_numbers(3, 4, -5))
 
 
 # 3. Дан номер года (положительное целое число). Определить количество дней в
@@ -148,7 +147,7 @@ def mass():
         body_weight = body_weight * 1000
     elif s == 5:
         body_weight = body_weight * 100
-    return f"{body_weight} килограмм(а)"
+    return body_weight
 
 
 print(mass())

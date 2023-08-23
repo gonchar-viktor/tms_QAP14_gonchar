@@ -15,10 +15,12 @@ def slice_str():
     v2 = (c[5:9])
     v3 = (c[3:12:3])
     v4 = (c[::-1])
-    return f"{c}\n{v1}\n{v2}\n{v3}\n{v4}"
+    v5 = c, v1, v2, v3, v4
+    return v5
 
 
 print(slice_str())
+
 
 # 4
 def tes_tring():
