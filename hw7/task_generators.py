@@ -42,7 +42,7 @@ def f2():
             # aa = 'Исключение: the'
             #  list_of_numbers.append(aa)  #--- эти две строки, если хотим
             #  видеть в списке исключения
-            yield f"В слове: '{i}' находится исключение: 'the' "
+            print(f"В слове: '{i}' находится исключение: 'the' ")
             yield BaseException
         else:
             a = len(i)
