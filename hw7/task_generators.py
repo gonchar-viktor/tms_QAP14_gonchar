@@ -38,18 +38,19 @@ def f2():
     sentence = sentence.split()
 
     for i in sentence:
-        if "the" in i:
-            # aa = 'Исключение: the'
-            #  list_of_numbers.append(aa)  #--- эти две строки, если хотим
-            #  видеть в списке исключения
-            print(f"В слове: '{i}' находится исключение: 'the' ")
-            yield BaseException
-        else:
-            a = len(i)
-            list_of_numbers.append(a)
-    yield list_of_numbers
+        try:
+            if "the" in i:
+                raise ValueError(f"В слове: '{i}' находится исключение:"
+                                 f" 'the' ")
+                # aa = 'Исключение: the'
+                #  list_of_numbers.append(aa)  #--- эти две строки, если хотим
+                #  видеть в списке исключения
+            else:
+                a = len(i)
+                list_of_numbers.append(a)
+        except ValueError as e:
+            print(e)
+    return list_of_numbers
 
 
-g = f2()
-for u in g:
-    print(u)
+print(f2())
