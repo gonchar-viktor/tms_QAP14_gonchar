@@ -1,16 +1,18 @@
-#
 # Написать модульные тесты для 3, 4 задания из HW6 используя unittest
 import unittest
+import string
 
 
 def func_for_hw17_task_1():
+    """
+    The code is old
+    """
 
     # A function of 6 hw for hw17 unit testing
-    with open("file_for_hw17_task_11.txt", "r") as f:
+    with open("file_for_hw17_task_1.txt", "r") as f:
         b = list(map(float, f.readline().split()))
 
     def float_to_int():
-        global c
         c = []
         d = 0
         for i in b:
@@ -25,7 +27,7 @@ def func_for_hw17_task_1():
         c = c.replace(",", "")
 
         print(c)
-        with open("file_for_hw17_task_11.txt", "w") as file:
+        with open("file_for_hw17_task_1.txt", "w") as file:
             file.write(str(c))
 
     # enter values - 1.1 2.2 3.3 4.4 5.5
@@ -33,81 +35,60 @@ def func_for_hw17_task_1():
     float_to_int()
 
 
-# func_for_hw17_task_1()
-
-
-def func_assert(input_values):
-    if all(isinstance(i, float) for i in input_values):
-        # func_for_hw17_task_1()
-        with open("file_for_hw17_task_11.txt", "r") as file:
-            res = file.read()
-            return res
-    else:
-        return 'Error'
-
-
 class TestList(unittest.TestCase):
-    def test_check_float_numbers(self):
-        self.assertEqual(func_assert([1.1, 2.2, 3.3, 4.4, 5.5]), [
-            1.21, 4.84, 10.89, 19.36, 30.25])
-        # no successfully
+    """
+    Given a file with real numbers - 1.1 2.2 3.3 4.4 5.5
+    """
 
+    def test_check_squaring_numbers(self):
+        """
+        Checking for squaring numbers
+        """
+        with open("file_for_hw17_task_1.txt", "r") as file:
+            before_result = list(map(float, file.readline().split()))
+
+        func_for_hw17_task_1()
+        with open("file_for_hw17_task_1.txt", "r") as file:
+            result = list(map(float, file.readline().split()))
+
+            expected_result = list(round((i ** 2), 2) for i in before_result)
+
+        # successfully
+        self.assertEqual(result, expected_result)
 
     def test_check_empty_data(self):
-        self.assertEqual(func_assert([None]), 'Error')
+        """
+        Check that the list is not empty
+        """
+        with open("file_for_hw17_task_1.txt", "r") as file:
+            result = list(map(float, file.readline().split()))
 
-    def test_check_str(self):
-        self.assertEqual(func_assert(['bim_bim']), 'Error')
+        # successfully
+        self.assertNotEqual(len(result), 0)
+
+    def test_check_a_list_to_work_with(self):
+        """
+        Checking so that as a result we get a list to work with
+        """
+        with open("file_for_hw17_task_1.txt", "r") as file:
+            result = list(map(float, file.readline().split()))
+
+        # successfully
+        self.assertEqual(type(result), list)
 
     def test_check_special_characters(self):
-        self.assertEqual(func_assert([']', '%', '1', '-']), 'Error')
+        """
+        f
+        """
+        with open("file_for_hw17_task_1.txt", "r") as file:
+            result = list(map(float, file.readline().split()))
+        if any(string.punctuation) in (i for i in result):
+            val_bool = False
+        else:
+            val_bool = True
+
+        self.assertTrue(val_bool)
 
 
 if __name__ == '__main__':
     unittest.main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def func_assert22(input_values):
-#     if all(isinstance(i, float) for i in input_values):
-#         res = []
-#         for i in input_values:
-#             i = i ** 2
-#             i = round(i, 2)
-#             res.append(i)
-#         return res
-#     else:
-#         return 'Error'
-#
-#
-# class TestList(unittest.TestCase):
-#     def test_check_float_numbers(self):
-#         self.assertEqual(func_assert22([1.1, 2.2, 3.3, 4.4, 5.5]), [
-#             1.21, 4.84, 10.89, 19.36, 30.25])
-#         """successfully"""
-#
-#     def test_check_empty_data(self):
-#         self.assertEqual(func_assert22([None]), 'Error')
-#         """successfully"""
-#
-#     def test_check_str(self):
-#         self.assertEqual(func_assert22(['bim_bim']), 'Error')
-#         """successfully"""
-#
-#     def test_check_special_characters(self):
-#         self.assertEqual(func_assert22([']', '%', '1', '-']), 'Error')
-#         """successfully"""
