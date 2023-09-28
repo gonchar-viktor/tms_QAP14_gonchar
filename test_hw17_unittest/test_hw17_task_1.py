@@ -9,7 +9,7 @@ def func_for_hw17_task_1():
     """
 
     # A function of 6 hw for hw17 unit testing
-    with open("file_for_hw17_task_1.txt", "r") as f:
+    with open("file_for_task_1_hw17.txt", "r") as f:
         b = list(map(float, f.readline().split()))
 
     def float_to_int():
@@ -27,7 +27,7 @@ def func_for_hw17_task_1():
         c = c.replace(",", "")
 
         print(c)
-        with open("file_for_hw17_task_1.txt", "w") as file:
+        with open("file_for_task_1_hw17.txt", "w") as file:
             file.write(str(c))
 
     # enter values - 1.1 2.2 3.3 4.4 5.5
@@ -44,11 +44,11 @@ class TestList(unittest.TestCase):
         """
         Checking for squaring numbers
         """
-        with open("file_for_hw17_task_1.txt", "r") as file:
+        with open("file_for_task_1_hw17.txt", "r") as file:
             before_result = list(map(float, file.readline().split()))
 
         func_for_hw17_task_1()
-        with open("file_for_hw17_task_1.txt", "r") as file:
+        with open("file_for_task_1_hw17.txt", "r") as file:
             result = list(map(float, file.readline().split()))
 
             expected_result = list(round((i ** 2), 2) for i in before_result)
@@ -60,7 +60,7 @@ class TestList(unittest.TestCase):
         """
         Check that the list is not empty
         """
-        with open("file_for_hw17_task_1.txt", "r") as file:
+        with open("file_for_task_1_hw17.txt", "r") as file:
             result = list(map(float, file.readline().split()))
 
         # successfully
@@ -70,7 +70,7 @@ class TestList(unittest.TestCase):
         """
         Checking so that as a result we get a list to work with
         """
-        with open("file_for_hw17_task_1.txt", "r") as file:
+        with open("file_for_task_1_hw17.txt", "r") as file:
             result = list(map(float, file.readline().split()))
 
         # successfully
@@ -78,15 +78,16 @@ class TestList(unittest.TestCase):
 
     def test_check_special_characters(self):
         """
-        f
+        Checking for special characters
         """
-        with open("file_for_hw17_task_1.txt", "r") as file:
+        with open("file_for_task_1_hw17.txt", "r") as file:
             result = list(map(float, file.readline().split()))
         if any(string.punctuation) in (i for i in result):
             val_bool = False
         else:
             val_bool = True
 
+        # successfully
         self.assertTrue(val_bool)
 
 
