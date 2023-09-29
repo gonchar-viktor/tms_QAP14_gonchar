@@ -50,19 +50,21 @@ class TestForFunc4(unittest.TestCase):
     Класс для набора модульных тестов
     """
     func4()
+    global content1, content2
+    with open('file_for_task_2_hw17_bin_1.bin', "rb") as f1:
+        content1 = f1.read()
+
+    with open('file_for_task_2_hw17_bin_2.bin', "rb") as f2:
+        content2 = f2.read()
 
     def test_check_bin_file_replace(self):
         """
         Checking that the files have been replaced
         Проверяю, что файлы заменились
         """
-        # func4()
-        with open('file_for_task_2_hw17_bin_1.bin', "rb") as f1:
-            content1 = f1.read()
 
-        with open('file_for_task_2_hw17_bin_2.bin', "rb") as f2:
-            content2 = f2.read()
         # successfully
+
         self.assertEqual(content1, b'abcd')
         self.assertEqual(content2, b'12345')
 
@@ -71,6 +73,7 @@ class TestForFunc4(unittest.TestCase):
         Checking that the files exist
         Проверяю, что файлы существуют
         """
+
         # successfully
         self.assertTrue('file_for_task_2_hw17_bin_1.bin')
         self.assertTrue('file_for_task_2_hw17_bin_2.bin')
@@ -80,7 +83,11 @@ class TestForFunc4(unittest.TestCase):
         Checking that the files are not empty
         Проверяю, что файлы не пустые
         """
+
         # successfully
+        self.assertNotEqual(len(content1), 0)
+        self.assertNotEqual(len(content2), 0)
+        # or
         self.assertIsNotNone('file_for_task_2_hw17_bin_1.bin')
         self.assertIsNotNone('file_for_task_2_hw17_bin_2.bin')
 
