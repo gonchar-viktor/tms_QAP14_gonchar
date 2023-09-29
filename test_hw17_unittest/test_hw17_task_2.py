@@ -1,6 +1,7 @@
 # Написать модульные тесты для 3, 4 задания из HW6 используя unittest
 import unittest
 
+
 # 4 Даны два файла произвольного типа. Поменять местами их
 # содержимое. Файлы должны быть бинарного типа
 
@@ -50,7 +51,12 @@ class TestForFunc4(unittest.TestCase):
     Класс для набора модульных тестов
     """
     func4()
-    global content1, content2
+
+    def __init__(self, content1, content2):
+        super().__init__()
+        self.content1 = content1
+        self.content2 = content2
+
     with open('file_for_task_2_hw17_bin_1.bin', "rb") as f1:
         content1 = f1.read()
 
@@ -65,8 +71,8 @@ class TestForFunc4(unittest.TestCase):
 
         # successfully
 
-        self.assertEqual(content1, b'abcd')
-        self.assertEqual(content2, b'12345')
+        self.assertEqual(self.content1, b'abcd')
+        self.assertEqual(self.content2, b'12345')
 
     def test_check_that_the_files_exist(self):
         """
@@ -85,8 +91,8 @@ class TestForFunc4(unittest.TestCase):
         """
 
         # successfully
-        self.assertNotEqual(len(content1), 0)
-        self.assertNotEqual(len(content2), 0)
+        self.assertNotEqual(len(self.content1), 0)
+        self.assertNotEqual(len(self.content2), 0)
         # or
         self.assertIsNotNone('file_for_task_2_hw17_bin_1.bin')
         self.assertIsNotNone('file_for_task_2_hw17_bin_2.bin')
