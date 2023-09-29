@@ -6,7 +6,7 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 
-from tests.basic import radio_button_click
+from tests.test_for_lesson.basic import radio_button_click
 
 
 @pytest.fixture(scope='function')

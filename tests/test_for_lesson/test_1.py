@@ -1,6 +1,6 @@
 #
 
-from tests.basic import wait_for_visible
+from tests.test_for_lesson.basic import wait_for_visible
 
 
 def test_1(driver):

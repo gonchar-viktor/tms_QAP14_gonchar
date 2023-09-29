@@ -1,5 +1,5 @@
 # +
-from tests.basic import wait_for_visible, wait_for_visible2
+from tests.test_for_lesson.basic import wait_for_visible, wait_for_visible2
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
