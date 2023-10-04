@@ -8,3 +8,7 @@ def test_playwright_example(page: Page):
 
     expect(page).to_have_title('Fast and reliable end-to-end testing for '
                                'modern web apps | Playwright')
+
+
+
+

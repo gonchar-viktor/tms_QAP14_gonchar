@@ -26,17 +26,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 # по атрибуту = //input[@type]
 
 
-@pytest.fixture(scope='function')
-def driver():
-    driver = webdriver.Chrome(service=ChromeService(
-        ChromeDriverManager().install()))
-    driver.maximize_window()
-    yield driver
-
-    driver.close()
-    driver.quit()
-
-
 def test_1_css(driver):
     driver.get("https://www.bbc.com/news")
     wait_for_visible(driver, '[class="gs-c-promo-image gs-u-mb gs-u-mb0@xs '

@@ -1,4 +1,4 @@
-from base import wait_for_visible
+from tests.base import wait_for_visible
 
 import pytest
 from selenium import webdriver
